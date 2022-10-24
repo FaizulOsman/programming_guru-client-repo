@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 
 const LoginForm = ({ email, password }) => {
-  const { logIn, setLoading, logOut } = useContext(AuthContext);
+  const { logIn, setLoading, logOut, googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -47,6 +47,17 @@ const LoginForm = ({ email, password }) => {
       });
   };
 
+  // Google Sign In
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(() => {
+        toast.success("Successfully signed in with google!");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   // INPUT FIELD CONTROLLED BY REACT
   const [errorOnChange, setErrorOnChange] = useState({
     email: "",
@@ -57,7 +68,7 @@ const LoginForm = ({ email, password }) => {
   const handleEmailChange = (e) => {
     const emailValue = e.target.value;
 
-    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailValue)) {
+    if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailValue)) {
       setErrorOnChange({
         ...errorOnChange,
         email: "Please provide a valid email.",
@@ -140,13 +151,22 @@ const LoginForm = ({ email, password }) => {
           </p>
         )}
 
-        <div className="md:flex md:items-center mt-4 mb-6">
+        <div className="md:flex md:items-center mt-4 mb-2">
           <label className="block text-gray-500 font-bold">
             <input className="mr-2 leading-tight" type="checkbox" />
-            <span className="text-sm">Send me your newsletter!</span>
+            <span className="text-sm">Accept all roles.</span>
           </label>
         </div>
-        <div className="flex items-center justify-between">
+
+        <p>
+          <small className="text-sm font-semibold">
+            Don't have an account?{" "}
+            <Link to="/register" className="text-orange-400 underline">
+              Please Register.
+            </Link>
+          </small>
+        </p>
+        <div className="flex items-center justify-between mt-5">
           <button
             className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded"
             type="submit"
@@ -164,6 +184,13 @@ const LoginForm = ({ email, password }) => {
           <small>{error}</small>
         </p>
       </form>
+      <div className="divider my-8">OR</div>
+      <button
+        onClick={handleGoogleSignIn}
+        className="btn btn-outline btn-primary w-full border rounded-2xl"
+      >
+        Continue with Google
+      </button>
     </div>
   );
 };
