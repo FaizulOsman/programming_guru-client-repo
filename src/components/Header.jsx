@@ -1,4 +1,4 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleHalfStroke, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
@@ -8,14 +8,14 @@ import { AuthContext } from "../contexts/UserContext";
 const Header = ({ handleDrawer }) => {
   const { user, logOut } = useContext(AuthContext);
 
-  const handleLogOut = () => {
-    logOut()
-      .then(() => {})
-      .catch((e) => {
-        console.log(e);
-        toast.success("Successfull signed out!!!");
-      });
-  };
+  // const handleLogOut = () => {
+  //   logOut()
+  //     .then(() => {})
+  //     .catch((e) => {
+  //       console.log(e);
+  //       toast.success("Successfull signed out!!!");
+  //     });
+  // };
 
   return (
     <div className=" border-b-2 border-primary">
@@ -23,7 +23,7 @@ const Header = ({ handleDrawer }) => {
         <div className="flex-1">
           <NavLink className="btn btn-ghost normal-case text-xl">
             <span className="text-orange-400 text-2xl font-bold">
-              Learn Programming
+              Programming Guru
             </span>
           </NavLink>
         </div>
@@ -44,13 +44,18 @@ const Header = ({ handleDrawer }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="font-semibold" to="/shop">
+                <NavLink className="font-semibold" to="/courses">
                   Courses
                 </NavLink>
               </li>
               <li>
-                <NavLink className="font-semibold" to="/contact">
+                <NavLink className="font-semibold" to="/blog">
                   Blog
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="font-semibold" to="/faq">
+                  FAQ
                 </NavLink>
               </li>
               {!user?.email ? (
@@ -101,7 +106,11 @@ const Header = ({ handleDrawer }) => {
               undefined}
               <li>
                 <Link
-                  title={user?.displayName ? user?.displayName : "No User"}
+                  title={
+                    user?.displayName
+                      ? user?.displayName
+                      : "User name not found"
+                  }
                   onClick={handleDrawer}
                 >
                   {user?.photoURL ? (
@@ -113,6 +122,11 @@ const Header = ({ handleDrawer }) => {
                   ) : (
                     <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                   )}
+                </Link>
+              </li>
+              <li>
+                <Link>
+                  <FontAwesomeIcon icon={faCircleHalfStroke} />
                 </Link>
               </li>
             </ul>
