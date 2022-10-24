@@ -1,12 +1,13 @@
 import { faCircleHalfStroke, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 
 const Header = ({ handleDrawer }) => {
   const { user, logOut } = useContext(AuthContext);
+  const [darkActive, setDarkActive] = useState(false);
 
   // const handleLogOut = () => {
   //   logOut()
@@ -16,6 +17,10 @@ const Header = ({ handleDrawer }) => {
   //       toast.success("Successfull signed out!!!");
   //     });
   // };
+
+  const handleDarkButton = () => {
+    setDarkActive(!darkActive);
+  };
 
   return (
     <div className=" border-b-2 border-primary">
@@ -124,9 +129,15 @@ const Header = ({ handleDrawer }) => {
                   )}
                 </Link>
               </li>
-              <li>
-                <Link>
-                  <FontAwesomeIcon icon={faCircleHalfStroke} />
+              <li
+                onClick={handleDarkButton}
+                className={darkActive ? "rotate-180" : undefined}
+              >
+                <Link className="flex items-center">
+                  <FontAwesomeIcon
+                    className="text-2xl p-0"
+                    icon={faCircleHalfStroke}
+                  />
                 </Link>
               </li>
             </ul>
