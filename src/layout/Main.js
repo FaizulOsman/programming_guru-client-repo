@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import RightSidebar from "../components/RightSidebar";
 import { DarkContext } from "../contexts/DarkProvider";
@@ -17,6 +18,7 @@ const Main = () => {
       <Header drawer={drawer} handleDrawer={handleDrawer}></Header>
       <RightSidebar drawer={drawer} handleDrawer={handleDrawer}></RightSidebar>
       <Outlet></Outlet>
+      <Footer></Footer>
     </div>
   );
 };
