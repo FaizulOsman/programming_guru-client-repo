@@ -5,23 +5,24 @@ import { Link } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
 
 const SingleCourse = ({ course }) => {
-  // const {img, name, description} = course
+  const { img, name, description } = course;
   const { darkBtn } = useContext(DarkContext);
 
   return (
     <div>
       <div className={darkBtn ? "card shadow-xl" : "card bg-accent shadow-xl"}>
         <figure>
-          <img className="h-64" src={course?.img} alt="Shoes" />
+          <img className="h-64 p-2" src={img} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">
-            {course?.name}
+            {name}
             <div className="badge badge-secondary">Quiz 00</div>
           </h2>
           <p>
-            Any fool can write code that a computer can understand. Good
-            programmers write code that humans can understand.
+            {description.length > 100
+              ? description.slice(0, 100) + " ..."
+              : description}
           </p>
           <div className="card-actions justify-end">
             <Link
