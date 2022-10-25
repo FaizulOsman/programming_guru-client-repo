@@ -12,7 +12,6 @@ const LoginForm = ({ email, password }) => {
     googleSignIn,
     githubSignIn,
     resetPassword,
-    verifyEmail,
   } = useContext(AuthContext);
   const { darkBtn } = useContext(DarkContext);
   const [resetPass, setResetPass] = useState("");

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
 
-const LeftSidebar = ({ drawer, handleDrawer }) => {
+const LeftSidebar = ({ drawer, handleDrawer, courses }) => {
   const { darkBtn } = useContext(DarkContext);
 
   return (
@@ -15,7 +16,7 @@ const LeftSidebar = ({ drawer, handleDrawer }) => {
         }
       >
         <div className="flex justify-between">
-          <h4 className="font-semibold">Filter Your Products</h4>
+          <h4 className="font-semibold">Filter Your Courses</h4>
           <button
             onClick={handleDrawer}
             className="hover:rotate-180 duration-300"
@@ -35,6 +36,16 @@ const LeftSidebar = ({ drawer, handleDrawer }) => {
               />
             </svg>
           </button>
+        </div>
+        <div className="ml-5 mt-20">
+          <h4 className="text-xl font-bold">All Courses</h4>
+          {courses.map((course) => (
+            <Link to={`/course/${course.id}`} key={course.id}>
+              <h4 className="text-lg font-semibold mt-3 text-primary underline">
+                {course.id}. {course.name}
+              </h4>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
