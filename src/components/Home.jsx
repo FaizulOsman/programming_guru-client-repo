@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import lottieCodingDark from "../assets/lottieCodingdark.json";
+import lottieCodingLight from "../assets/lottieCodingLight.json";
+import { DarkContext } from "../contexts/DarkProvider";
 
 const Home = () => {
+  const { darkBtn } = useContext(DarkContext);
+
   return (
     <div>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-24">
@@ -14,17 +20,15 @@ const Home = () => {
                 </p>
               </div>
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none">
-                A reader lives a <br className="hidden md:block" /> thousand
+                A learner lives a <br className="hidden md:block" /> thousand
                 lives{" "}
                 <span className="inline-block text-primary">
                   before he dies
                 </span>
               </h2>
               <p className="text-base text-gray-500 md:text-lg">
-                Books are a uniquely portable magic. Books serve to show a man
-                that those original thoughts of his aren’t very new after all.
-                The man who does not read good books is no better than the man
-                who can’t.
+                Any fool can write code that a computer can understand. Good
+                programmers write code that humans can understand.
               </p>
             </div>
             <div className="flex flex-col items-center md:flex-row">
@@ -83,9 +87,13 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="relative lg:w-1/2 ">
-            <div className="w-full lg:w-4/5 lg:ml-auto h-56  sm:h-96">
-              {/* <Lottie animationData={reader} loop={true} /> */}
+          <div className="relative my-10 lg:w-1/2 ">
+            <div className="w-full lg:w-4/5 lg:ml-auto h-56 sm:h-96">
+              {darkBtn ? (
+                <Lottie animationData={lottieCodingLight} loop={true} />
+              ) : (
+                <Lottie animationData={lottieCodingDark} loop={true} />
+              )}
             </div>
           </div>
         </div>
