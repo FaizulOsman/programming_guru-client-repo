@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
 
 const SingleCourse = ({ course }) => {
-  const { img, name, description } = course;
+  const { img, name, description, type } = course;
   const { darkBtn } = useContext(DarkContext);
 
   return (
@@ -17,7 +17,15 @@ const SingleCourse = ({ course }) => {
         <div className="card-body">
           <h2 className="card-title">
             {name}
-            <div className="badge badge-secondary">Quiz 00</div>
+            <div
+              className={
+                type === "Free"
+                  ? "badge badge-primary"
+                  : "badge badge-secondary"
+              }
+            >
+              {type}
+            </div>
           </h2>
           <p>
             {description.length > 80

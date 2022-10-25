@@ -12,6 +12,7 @@ const LoginForm = ({ email, password }) => {
     googleSignIn,
     githubSignIn,
     resetPassword,
+    verifyEmail,
   } = useContext(AuthContext);
   const { darkBtn } = useContext(DarkContext);
   const [resetPass, setResetPass] = useState("");
@@ -71,6 +72,7 @@ const LoginForm = ({ email, password }) => {
       })
       .catch((e) => {
         toast.success("Something wrong happening");
+        console.log(e);
       });
   };
 
@@ -79,8 +81,10 @@ const LoginForm = ({ email, password }) => {
     googleSignIn()
       .then(() => {
         toast.success("Successfully signed in with google!");
+        navigate("/");
       })
       .catch((e) => {
+        toast.success("Something wrong happening");
         console.log(e);
       });
   };
@@ -88,10 +92,15 @@ const LoginForm = ({ email, password }) => {
   // handleGithubSignIn Sign In
   const handleGithubSignIn = () => {
     githubSignIn()
-      .then(() => {
+      .then((result) => {
+        const user = result.user;
+        user.emailVerified = true;
+        console.log(user);
         toast.success("Successfully signed in with github!");
+        navigate("/");
       })
       .catch((e) => {
+        toast.success("Something wrong happening");
         console.log(e);
       });
   };

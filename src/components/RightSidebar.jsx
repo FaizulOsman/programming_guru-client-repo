@@ -29,7 +29,7 @@ const RightSidebar = ({ drawer, handleDrawer }) => {
         className="z-50 bg-primary border-l-2 border-primary border-b-2 p-2 w-72 duration-1000 min-h-screen absolute top-0 right-0"
       >
         <div className="flex justify-between bg-white p-2 rounded-md">
-          {!user?.email ? (
+          {!user?.emailVerified ? (
             <Link to="/login" className="font-semibold text-blue-600">
               Sign In
             </Link>

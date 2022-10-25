@@ -64,7 +64,10 @@ const Register = () => {
   // handleGithubSignIn Sign In
   const handleGithubSignIn = () => {
     githubSignIn()
-      .then(() => {
+      .then((result) => {
+        const user = result.user;
+        user.emailVerified = true;
+        console.log(user);
         toast.success("Successfully signed in with github!");
       })
       .catch((e) => {

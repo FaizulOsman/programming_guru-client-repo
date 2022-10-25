@@ -1,8 +1,4 @@
-import {
-  faCircleHalfStroke,
-  faCode,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleHalfStroke, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -38,14 +34,6 @@ const Header = ({ handleDrawer }) => {
           </NavLink>
         </div>
         <div className="flex-none gap-2">
-          {/* <div className="hidden sm:block form-control">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered border-2 border-primary opacity-70"
-            />
-          </div> */}
-
           <div className="hidden lg:block flex-none">
             <ul className="menu menu-horizontal p-0">
               <li>
@@ -68,7 +56,7 @@ const Header = ({ handleDrawer }) => {
                   FAQ
                 </NavLink>
               </li>
-              {!user?.email ? (
+              {user?.emailVerified || (
                 <li tabIndex={0}>
                   <Link>
                     Sign In/Up
@@ -82,7 +70,11 @@ const Header = ({ handleDrawer }) => {
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                     </svg>
                   </Link>
-                  <ul className="p-2 bg-transparent">
+                  <ul
+                    className={
+                      darkBtn ? "p-2 z-50 bg-white" : "p-2 z-50 bg-accent"
+                    }
+                  >
                     <li>
                       <NavLink className="font-semibold" to="/login">
                         Login
@@ -95,7 +87,7 @@ const Header = ({ handleDrawer }) => {
                     </li>
                   </ul>
                 </li>
-              ) : undefined}
+              )}
               <li>
                 <Link
                   title={
@@ -116,7 +108,7 @@ const Header = ({ handleDrawer }) => {
                   )}
                 </Link>
                 {user?.uid && (
-                  <ul className="p-2 bg-transparent">
+                  <ul className={darkBtn ? "p-2" : "p-2 bg-accent"}>
                     <li>
                       <NavLink
                         onClick={handleSignOut}

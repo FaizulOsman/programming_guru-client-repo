@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendEmailVerification,
@@ -20,6 +21,7 @@ const UserContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -47,9 +49,13 @@ const UserContext = ({ children }) => {
   const resetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
-
+  // Google Sign In
   const googleSignIn = () => {
     return signInWithPopup(auth, googleProvider);
+  };
+  // Github Sign In
+  const githubSignIn = () => {
+    return signInWithPopup(auth, githubProvider);
   };
 
   const logOut = () => {
@@ -60,9 +66,9 @@ const UserContext = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
-      if (currentUser === null || currentUser.emailVerified) {
-        setUser(currentUser);
-      }
+      // if (currentUser === null || currentUser.emailVerified) {
+      setUser(currentUser);
+      // }
       setLoading(false);
     });
 
@@ -82,6 +88,7 @@ const UserContext = ({ children }) => {
     googleSignIn,
     updateUserProfile,
     resetPassword,
+    githubSignIn,
   };
 
   return (
