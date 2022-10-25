@@ -1,19 +1,20 @@
 import { faArrowRight, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
-import IMG from "../assets/image 1-2.png";
+import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetail = () => {
+  const course = useLoaderData();
+
   return (
     <div className="w-11/12 mx-auto py-20">
       <div className="flex-none md:flex">
         <div className="md:w-5/12 p-10">
-          <img src={IMG} className="w-full" alt="img" />
+          <img src={course?.img} className="w-full" alt="img" />
         </div>
         <div className="md:w-7/12 flex flex-col justify-center items-center">
           <div className="">
-            <h2 className="text-3xl font-bold">JavaScript</h2>
+            <h2 className="text-3xl font-bold">{course?.name}</h2>
             <p className="py-5">
               Any fool can write code that a computer can understand. Good
               programmers write code that humans can understand.

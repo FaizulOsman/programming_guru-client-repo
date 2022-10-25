@@ -19,8 +19,22 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/home", element: <Home></Home> },
-      { path: "/courses", element: <Courses></Courses> },
-      { path: "/course/:id", element: <CourseDetail></CourseDetail> },
+      {
+        path: "/courses",
+        loader: () =>
+          fetch(
+            "https://b610-lerning-platform-server-side-faizul-osman.vercel.app/courses"
+          ),
+        element: <Courses></Courses>,
+      },
+      {
+        path: "/course/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://b610-lerning-platform-server-side-faizul-osman.vercel.app/course/${params.id}`
+          ),
+        element: <CourseDetail></CourseDetail>,
+      },
       { path: "/faq", element: <FAQ></FAQ> },
       { path: "/blog", element: <Blog></Blog> },
       { path: "/login", element: <Login></Login> },

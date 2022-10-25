@@ -1,11 +1,13 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
 import LeftSidebar from "./LeftSidebar";
+import SingleCourse from "./SingleCourse";
 
 const Courses = () => {
+  const courses = useLoaderData();
   const [drawer, setDrawer] = useState(true);
   const { darkBtn } = useContext(DarkContext);
 
@@ -25,162 +27,9 @@ const Courses = () => {
 
       <div className="col-span-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div
-            className={darkBtn ? "card shadow-xl" : "card bg-accent shadow-xl"}
-          >
-            <figure>
-              <img src="" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                JavaScript
-                <div className="badge badge-secondary">Quiz 00</div>
-              </h2>
-              <p>
-                Any fool can write code that a computer can understand. Good
-                programmers write code that humans can understand.
-              </p>
-              <div className="card-actions justify-end">
-                <Link
-                  to={`/course/1`}
-                  className="badge badge-outline hover:bg-primary p-4"
-                >
-                  <span className="mr-2">Start Practice</span>
-                  <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div
-            className={darkBtn ? "card shadow-xl" : "card bg-accent shadow-xl"}
-          >
-            <figure>
-              <img src="" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Python
-                <div className="badge badge-secondary">Quiz 00</div>
-              </h2>
-              <p>
-                Any fool can write code that a computer can understand. Good
-                programmers write code that humans can understand.
-              </p>
-              <div className="card-actions justify-end">
-                <Link
-                  to={`/quiz/`}
-                  className="badge badge-outline hover:bg-primary p-4"
-                >
-                  <span className="mr-2">Start Practice</span>
-                  <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div
-            className={darkBtn ? "card shadow-xl" : "card bg-accent shadow-xl"}
-          >
-            <figure>
-              <img src="" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Python
-                <div className="badge badge-secondary">Quiz 00</div>
-              </h2>
-              <p>
-                Any fool can write code that a computer can understand. Good
-                programmers write code that humans can understand.
-              </p>
-              <div className="card-actions justify-end">
-                <Link
-                  to={`/quiz/`}
-                  className="badge badge-outline hover:bg-primary p-4"
-                >
-                  <span className="mr-2">Start Practice</span>
-                  <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div
-            className={darkBtn ? "card shadow-xl" : "card bg-accent shadow-xl"}
-          >
-            <figure>
-              <img src="" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Python
-                <div className="badge badge-secondary">Quiz 00</div>
-              </h2>
-              <p>
-                Any fool can write code that a computer can understand. Good
-                programmers write code that humans can understand.
-              </p>
-              <div className="card-actions justify-end">
-                <Link
-                  to={`/quiz/`}
-                  className="badge badge-outline hover:bg-primary p-4"
-                >
-                  <span className="mr-2">Start Practice</span>
-                  <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div
-            className={darkBtn ? "card shadow-xl" : "card bg-accent shadow-xl"}
-          >
-            <figure>
-              <img src="" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                Python
-                <div className="badge badge-secondary">Quiz 00</div>
-              </h2>
-              <p>
-                Any fool can write code that a computer can understand. Good
-                programmers write code that humans can understand.
-              </p>
-              <div className="card-actions justify-end">
-                <Link
-                  to={`/quiz/`}
-                  className="badge badge-outline hover:bg-primary p-4"
-                >
-                  <span className="mr-2">Start Practice</span>
-                  <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div
-            className={darkBtn ? "card shadow-xl" : "card bg-accent shadow-xl"}
-          >
-            <figure>
-              <img src="" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                C++
-                <div className="badge badge-secondary">Quiz 00</div>
-              </h2>
-              <p>
-                Any fool can write code that a computer can understand. Good
-                programmers write code that humans can understand.
-              </p>
-              <div className="card-actions justify-end">
-                <Link
-                  to={`/quiz/`}
-                  className="badge badge-outline hover:bg-primary p-4"
-                >
-                  <span className="mr-2">Start Practice</span>
-                  <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                </Link>
-              </div>
-            </div>
-          </div>
+          {courses.map((course) => (
+            <SingleCourse key={course.id} course={course}></SingleCourse>
+          ))}
         </div>
       </div>
     </div>
