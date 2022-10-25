@@ -6,17 +6,17 @@ A best platform for making yourself perfect on your chosen topic in programming.
 
 ## Live Website Link:
 
-Hosted in Vercel ->
+Hosted in Firevese ->
 
-## Client Site Code Link:
+## Client Side Code Link:
 
 Github Link: https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-FaizulOsman
 
 ## Server Link
 
-Hosted in Firebase ->
+Hosted in Vercel -> https://b610-lerning-platform-server-side-faizul-osman.vercel.app
 
-## Server Site Code Link:
+## Server Side Code Link:
 
 Github Link: https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-FaizulOsman
 
