@@ -20,8 +20,8 @@ const SingleCourse = ({ course }) => {
             <div className="badge badge-secondary">Quiz 00</div>
           </h2>
           <p>
-            {description.length > 100
-              ? description.slice(0, 100) + " ..."
+            {description.length > 80
+              ? description.slice(0, 80) + " ..."
               : description}
           </p>
           <div className="card-actions justify-end">
