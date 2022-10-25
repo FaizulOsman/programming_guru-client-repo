@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DarkContext } from "../contexts/DarkProvider";
 
 const Footer = () => {
+  const { darkBtn } = useContext(DarkContext);
+
   return (
-    <div className="rounded-md bg-accent">
-      <footer className="footer w-11/12 mx-auto p-10 text-neutral-content">
+    <div
+      className={
+        darkBtn
+          ? "text-gray-700 border-t-2 border-primary"
+          : "rounded-md bg-accent"
+      }
+    >
+      <footer className="footer w-11/12 mx-auto p-10">
         <div>
           <svg
             width="50"

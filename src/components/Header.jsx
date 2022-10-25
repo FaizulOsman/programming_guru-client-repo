@@ -8,30 +8,43 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
 import { AuthContext } from "../contexts/UserContext";
+import Logo from "../assets/logo.png";
+import toast from "react-hot-toast";
 
 const Header = ({ handleDrawer }) => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const { darkBtn, handleDarkButton } = useContext(DarkContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Successfully signed out!!!");
+      })
+      .catch((e) => {
+        console.log(e);
+        toast.error("Something wrong!!!");
+      });
+  };
 
   return (
     <div className="border-b-2 border-primary">
       <div className="navbar bg-transparent w-11/12 mx-auto">
         <div className="flex-1">
           <NavLink className="btn btn-ghost normal-case text-xl">
-            <span className="text-orange-400 text-2xl font-bold">
-              <FontAwesomeIcon className="mr-2" icon={faCode} />
+            <span className="flex items-center text-primary text-2xl font-bold">
+              <img src={Logo} alt="" />
               Programming Guru
             </span>
           </NavLink>
         </div>
         <div className="flex-none gap-2">
-          <div className="hidden sm:block form-control">
+          {/* <div className="hidden sm:block form-control">
             <input
               type="text"
               placeholder="Search"
               className="input input-bordered border-2 border-primary opacity-70"
             />
-          </div>
+          </div> */}
 
           <div className="hidden lg:block flex-none">
             <ul className="menu menu-horizontal p-0">
@@ -82,25 +95,7 @@ const Header = ({ handleDrawer }) => {
                     </li>
                   </ul>
                 </li>
-              ) : // <li tabIndex={0}>
-              //   {user?.displayName ? (
-              //     <Link>{user?.displayName}</Link>
-              //   ) : (
-              //     <Link>{user?.email}</Link>
-              //   )}
-              //   <ul className="p-2 bg-transparent">
-              //     <li>
-              //       <NavLink
-              //         onClick={handleLogOut}
-              //         className="font-semibold"
-              //         to="/login"
-              //       >
-              //         Sign Out
-              //       </NavLink>
-              //     </li>
-              //   </ul>
-              // </li>
-              undefined}
+              ) : undefined}
               <li>
                 <Link
                   title={
@@ -120,7 +115,21 @@ const Header = ({ handleDrawer }) => {
                     <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                   )}
                 </Link>
+                {user?.uid && (
+                  <ul className="p-2 bg-transparent">
+                    <li>
+                      <NavLink
+                        onClick={handleSignOut}
+                        className="font-semibold"
+                        to="/login"
+                      >
+                        Sign Out
+                      </NavLink>
+                    </li>
+                  </ul>
+                )}
               </li>
+
               <li
                 onClick={handleDarkButton}
                 className={darkBtn ? "rotate-180" : undefined}

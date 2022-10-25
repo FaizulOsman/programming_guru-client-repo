@@ -14,7 +14,7 @@ const RightSidebar = ({ drawer, handleDrawer }) => {
   const handleSignOut = () => {
     logOut()
       .then(() => {
-        toast.success("Successfull signed out!!!");
+        toast.success("Successfully signed out!!!");
       })
       .catch((e) => {
         console.log(e);

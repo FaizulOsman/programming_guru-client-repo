@@ -29,7 +29,7 @@ const SingleCourse = ({ course }) => {
               to={`/course/${course.id}`}
               className="badge badge-outline hover:bg-primary p-4"
             >
-              <span className="mr-2">Start Practice</span>
+              <span className="mr-2">Course Details</span>
               <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
             </Link>
           </div>
