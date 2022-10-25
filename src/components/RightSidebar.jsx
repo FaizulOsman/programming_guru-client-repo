@@ -3,21 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { DarkContext } from "../contexts/DarkProvider";
 import { AuthContext } from "../contexts/UserContext";
 import LoginForm from "./LoginForm";
 
 const RightSidebar = ({ drawer, handleDrawer }) => {
-  const { user, googleSignIn, logOut } = useContext(AuthContext);
-
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then(() => {
-        toast.success("Successfully signed in with google!");
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+  const { user, logOut } = useContext(AuthContext);
+  const { darkBtn } = useContext(DarkContext);
 
   const handleSignOut = () => {
     logOut()
@@ -34,7 +26,7 @@ const RightSidebar = ({ drawer, handleDrawer }) => {
     <div>
       <div
         style={drawer ? { marginTop: "-1000px" } : { margin: "0" }}
-        className="bg-primary border-l-2 border-primary border-b-2 p-2 w-72 duration-1000 min-h-screen absolute top-0 right-0"
+        className="z-50 bg-primary border-l-2 border-primary border-b-2 p-2 w-72 duration-1000 min-h-screen absolute top-0 right-0"
       >
         <div className="flex justify-between bg-white p-2 rounded-md">
           {!user?.email ? (
@@ -73,26 +65,29 @@ const RightSidebar = ({ drawer, handleDrawer }) => {
         <div className="max-w-md mt-5">
           <LoginForm email={"email2"} password={"pass2"}></LoginForm>
         </div>
-        <div className="text-white text-center font-semibold">
+        <div className="text-white text-center font-semibold my-4">
           <p>Do not have an account?</p>
-          <Link className="underline text-blue-600" to="/register">
+          <Link className="underline text-secondary" to="/register">
             Create Account
           </Link>
         </div>
-        <div className="text-center mt-5 bg-white rounded-md py-3">
-          <p>Or sign in with:</p>
-          <button
-            onClick={handleGoogleSignIn}
-            className="bg-blue-600 text-white rounded-md w-8/12 mt-2 p-2 border-none"
-          >
-            Google
-          </button>
-        </div>
-        <div className="bg-white mt-3 p-2 rounded-md">
+        <div
+          className={
+            darkBtn
+              ? "bg-white mt-3 p-2 rounded-md"
+              : "bg-accent mt-3 p-2 rounded-md"
+          }
+        >
           <FontAwesomeIcon className="text-red-600" icon={faHeart} />
           <span className="ml-2">Wishlist (0)</span>
         </div>
-        <div className="bg-white mt-3 p-2 rounded-md">
+        <div
+          className={
+            darkBtn
+              ? "bg-white mt-3 p-2 rounded-md"
+              : "bg-accent mt-3 p-2 rounded-md"
+          }
+        >
           <FontAwesomeIcon icon={faCodeCompare} />
           <span className="ml-2">Compare (0)</span>
         </div>

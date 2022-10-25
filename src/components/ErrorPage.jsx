@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useRouteError } from "react-router-dom";
+import { DarkContext } from "../contexts/DarkProvider";
 
 const ErrorPage = () => {
   const errorMessage = useRouteError();
-  console.log(errorMessage);
+  const { darkBtn } = useContext(DarkContext);
+
   return (
     <div>
-      <section className="flex items-center h-screen p-16 bg-base-100 text-gray-900">
+      <section
+        className={
+          darkBtn
+            ? "flex items-center h-screen p-16 text-gray-900"
+            : "flex items-center h-screen p-16 bg-accent text-gray-900"
+        }
+      >
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"

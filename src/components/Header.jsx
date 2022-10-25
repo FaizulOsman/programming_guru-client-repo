@@ -1,33 +1,25 @@
-import { faCircleHalfStroke, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleHalfStroke,
+  faCode,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useState } from "react";
-import toast from "react-hot-toast";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { DarkContext } from "../contexts/DarkProvider";
 import { AuthContext } from "../contexts/UserContext";
 
 const Header = ({ handleDrawer }) => {
-  const { user, logOut } = useContext(AuthContext);
-  const [darkActive, setDarkActive] = useState(false);
-
-  // const handleLogOut = () => {
-  //   logOut()
-  //     .then(() => {})
-  //     .catch((e) => {
-  //       console.log(e);
-  //       toast.success("Successfull signed out!!!");
-  //     });
-  // };
-
-  const handleDarkButton = () => {
-    setDarkActive(!darkActive);
-  };
+  const { user } = useContext(AuthContext);
+  const { darkBtn, handleDarkButton } = useContext(DarkContext);
 
   return (
-    <div className=" border-b-2 border-primary">
+    <div className="border-b-2 border-primary">
       <div className="navbar bg-transparent w-11/12 mx-auto">
         <div className="flex-1">
           <NavLink className="btn btn-ghost normal-case text-xl">
             <span className="text-orange-400 text-2xl font-bold">
+              <FontAwesomeIcon className="mr-2" icon={faCode} />
               Programming Guru
             </span>
           </NavLink>
@@ -131,11 +123,14 @@ const Header = ({ handleDrawer }) => {
               </li>
               <li
                 onClick={handleDarkButton}
-                className={darkActive ? "rotate-180" : undefined}
+                className={darkBtn ? "rotate-180" : undefined}
+                title={
+                  darkBtn ? "You are in Light Mode" : "You are in Dark Mode"
+                }
               >
                 <Link className="flex items-center">
                   <FontAwesomeIcon
-                    className="text-2xl p-0"
+                    className="text-2xl text-primary p-0"
                     icon={faCircleHalfStroke}
                   />
                 </Link>

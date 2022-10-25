@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DarkContext } from "../contexts/DarkProvider";
 
 const LeftSidebar = ({ drawer, handleDrawer }) => {
+  const { darkBtn } = useContext(DarkContext);
+
   return (
     <div>
       <div
         style={drawer ? { marginLeft: "-300px" } : { margin: "0" }}
-        className="bg-white border-primary border-r-2 border-b-2 p-2 w-[40%] md:w-72 duration-500 min-h-screen absolute top-0 left-0"
+        className={
+          darkBtn
+            ? "bg-white z-50 border-primary border-r-2 border-b-2 p-2 w-[40%] md:w-72 duration-500 min-h-screen absolute top-0 left-0"
+            : "bg-accent z-50 border-primary border-r-2 border-b-2 p-2 w-[40%] md:w-72 duration-500 min-h-screen absolute top-0 left-0"
+        }
       >
         <div className="flex justify-between">
           <h4 className="font-semibold">Filter Your Products</h4>

@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -42,6 +43,10 @@ const UserContext = ({ children }) => {
       photoURL: photoURL,
     });
   };
+  // Reset Password
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
 
   const googleSignIn = () => {
     return signInWithPopup(auth, googleProvider);
@@ -76,6 +81,7 @@ const UserContext = ({ children }) => {
     loading,
     googleSignIn,
     updateUserProfile,
+    resetPassword,
   };
 
   return (

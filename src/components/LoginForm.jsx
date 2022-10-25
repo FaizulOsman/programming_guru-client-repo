@@ -1,10 +1,21 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { DarkContext } from "../contexts/DarkProvider";
 import { AuthContext } from "../contexts/UserContext";
 
 const LoginForm = ({ email, password }) => {
-  const { logIn, setLoading, logOut, googleSignIn } = useContext(AuthContext);
+  const {
+    logIn,
+    setLoading,
+    logOut,
+    googleSignIn,
+    githubSignIn,
+    resetPassword,
+  } = useContext(AuthContext);
+  const { darkBtn } = useContext(DarkContext);
+  const [resetPass, setResetPass] = useState("");
+
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -47,11 +58,38 @@ const LoginForm = ({ email, password }) => {
       });
   };
 
+  // Email Blur to set to call Reset password function
+  const emailOnBlur = (e) => {
+    const email = e.target.value;
+    setResetPass(email);
+  };
+  // Reset password
+  const handleResetPassword = () => {
+    resetPassword(resetPass)
+      .then(() => {
+        toast.error("Please check your email to verify password");
+      })
+      .catch((e) => {
+        toast.success("Something wrong happening");
+      });
+  };
+
   // Google Sign In
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then(() => {
         toast.success("Successfully signed in with google!");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  // handleGithubSignIn Sign In
+  const handleGithubSignIn = () => {
+    githubSignIn()
+      .then(() => {
+        toast.success("Successfully signed in with github!");
       })
       .catch((e) => {
         console.log(e);
@@ -99,22 +137,28 @@ const LoginForm = ({ email, password }) => {
   };
 
   return (
-    <div className="">
+    <div>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md border rounded px-8 pt-6 pb-8 mb-4"
+        className={
+          darkBtn
+            ? "bg-white shadow-md border rounded px-8 pt-6 pb-8 mb-4"
+            : "bg-accent shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        }
       >
-        <h4 className="text-2xl font-semibold mb-5">Login</h4>
+        <h4 className="text-2xl font-bold text-center mb-5">Login</h4>
         <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="username"
-          >
+          <label className="block text-sm font-bold mb-2" htmlFor="username">
             Email
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={
+              darkBtn
+                ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                : "bg-success shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            }
             id={email}
+            onBlur={emailOnBlur}
             onChange={handleEmailChange}
             type="text"
             name="email"
@@ -129,14 +173,15 @@ const LoginForm = ({ email, password }) => {
         )}
 
         <div className="mb-2">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="password"
-          >
+          <label className="block text-sm font-bold mb-2" htmlFor="password">
             Password
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            className={
+              darkBtn
+                ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                : "bg-success shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            }
             id={password}
             onChange={handlePasswordChange}
             type="password"
@@ -152,7 +197,7 @@ const LoginForm = ({ email, password }) => {
         )}
 
         <div className="md:flex md:items-center mt-4 mb-2">
-          <label className="block text-gray-500 font-bold">
+          <label className="block font-bold">
             <input className="mr-2 leading-tight" type="checkbox" />
             <span className="text-sm">Accept all roles.</span>
           </label>
@@ -161,21 +206,24 @@ const LoginForm = ({ email, password }) => {
         <p>
           <small className="text-sm font-semibold">
             Don't have an account?{" "}
-            <Link to="/register" className="text-orange-400 underline">
+            <Link
+              to="/register"
+              className="text-primary hover:text-orange-500 underline"
+            >
               Please Register.
             </Link>
           </small>
         </p>
         <div className="flex items-center justify-between mt-5">
           <button
-            className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-primary hover:bg-orange-500 text-white font-bold py-2 px-4 rounded"
             type="submit"
           >
             Sign In
           </button>
           <Link
-            className="inline-block align-baseline font-bold text-sm text-orange-400 hover:text-orange-500"
-            href="#"
+            onClick={handleResetPassword}
+            className="inline-block align-baseline font-bold text-sm text-primary hover:text-orange-500"
           >
             Forgot Password?
           </Link>
@@ -184,13 +232,29 @@ const LoginForm = ({ email, password }) => {
           <small>{error}</small>
         </p>
       </form>
-      <div className="divider my-8">OR</div>
-      <button
-        onClick={handleGoogleSignIn}
-        className="btn btn-outline btn-primary w-full border rounded-2xl"
+      <div className={darkBtn ? "divider text-black my-8" : "divider my-8"}>
+        OR
+      </div>
+      <div
+        className={
+          !darkBtn
+            ? "bg-accent rounded-lg p-4"
+            : "bg-white shadow-md border rounded-lg p-4"
+        }
       >
-        Continue with Google
-      </button>
+        <button
+          onClick={handleGoogleSignIn}
+          className="btn btn-outline btn-primary w-full border rounded-2xl"
+        >
+          Continue with Google
+        </button>
+        <button
+          onClick={handleGithubSignIn}
+          className="btn btn-outline btn-neutral w-full border rounded-2xl mt-5"
+        >
+          Continue with Github
+        </button>
+      </div>
     </div>
   );
 };
