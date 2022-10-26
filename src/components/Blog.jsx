@@ -24,12 +24,15 @@ const Blog = () => {
             </div>
             <div className="collapse-content">
               <p>
-                ReactJS Router is mainly used for developing Single Page Web
-                Applications. React Router is used to define multiple routes in
-                the application. React Router is a standard library for routing
-                in React. It enables the navigation among views of various
-                components in a React Application, allows changing the browser
-                URL, and keeps the UI in sync with the URL.
+                Cross-Origin Resource Sharing (CORS) is an HTTP-header based
+                mechanism that allows a server to indicate any origins (domain,
+                scheme, or port) other than its own from which a browser should
+                permit loading resources. CORS also relies on a mechanism by
+                which browsers make a "preflight" request to the server hosting
+                the cross-origin resource, in order to check that the server
+                will permit the actual request. In that preflight, the browser
+                sends headers that indicate the HTTP method and headers that
+                will be used in the actual request.
               </p>
             </div>
           </div>
@@ -47,14 +50,23 @@ const Blog = () => {
             </div>
             <div className="collapse-content">
               <p>
-                In a typical React application, data is passed top-down (parent
-                to child) via props, but such usage can be cumbersome for
-                certain types of props (e.g. locale preference, UI theme) that
-                are required by many components within an application. Context
-                provides a way to share values like these between components
-                without having to explicitly pass a prop through every level of
-                the tree.
+                Google Firebase offers many features that pitch it as the go-to
+                backend development tool for web and mobile apps. Firebase helps
+                us develop high-quality apps.
               </p>
+              <h5 className="text-lg font-semibold my-2">
+                Top 10+ Firebase Alternatives
+              </h5>
+              <li>Back4App</li>
+              <li>Parse</li>
+              <li>AWS Amplify</li>
+              <li>Backendless</li>
+              <li>KUZZLE</li>
+              <li>Supabase</li>
+              <li>Appwrite</li>
+              <li>HASURA</li>
+              <li>nHOST</li>
+              <li>deployd</li>
             </div>
           </div>
           <div
@@ -70,20 +82,15 @@ const Blog = () => {
             </div>
             <div className="collapse-content">
               <p>
-                useRef returns a mutable ref object whose .current property is
-                initialized to the passed argument ( initialValue ). The
-                returned object will persist for the full lifetime of the
-                component. Essentially, useRef is like a “box” that can hold a
-                mutable value in its .current property.
-                <li>
-                  The useRef Hook allows you to persist values between renders.
-                  It can be used to access a DOM element directly.
-                </li>
-                <li>
-                  It can be used to store a mutable value that does not cause a
-                  re-render when updated.
-                </li>
-                <li>It can be used to access a DOM element directly.</li>
+                Private Routes in React Router (also called Protected Routes)
+                require a user being authorized to visit a route (read: page).
+                So if a user is not authorized for a specific page, they cannot
+                access it. The most common example is authentication in a React
+                application where a user can only access the protected pages
+                when they are authorized (which means in this case being
+                authenticated). Authorization goes beyond authentication though.
+                For example, a user can also have roles and permissions which
+                give a user access to specific areas of the application.
               </p>
             </div>
           </div>
@@ -100,20 +107,11 @@ const Blog = () => {
             </div>
             <div className="collapse-content">
               <p>
-                useRef returns a mutable ref object whose .current property is
-                initialized to the passed argument ( initialValue ). The
-                returned object will persist for the full lifetime of the
-                component. Essentially, useRef is like a “box” that can hold a
-                mutable value in its .current property.
-                <li>
-                  The useRef Hook allows you to persist values between renders.
-                  It can be used to access a DOM element directly.
-                </li>
-                <li>
-                  It can be used to store a mutable value that does not cause a
-                  re-render when updated.
-                </li>
-                <li>It can be used to access a DOM element directly.</li>
+                It is a used as backend service where javascript works on the
+                server-side of the application. This way javascript is used on
+                both frontend and backend. Node. js runs on chrome v8 engine
+                which converts javascript code into machine code, it is highly
+                scalable, lightweight, fast, and data-intensive.
               </p>
             </div>
           </div>
