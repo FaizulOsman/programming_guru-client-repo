@@ -30,7 +30,7 @@ const CourseDetail = () => {
                   {name}
                   <Link
                     onClick={handlelPrint}
-                    className="badge badge-outline hover:bg-primary p-4 ml-5"
+                    className="badge badge-outline hover:bg-primary hover:text-white p-4 ml-5"
                   >
                     <FontAwesomeIcon icon={faDownload}></FontAwesomeIcon>
                   </Link>
@@ -47,7 +47,7 @@ const CourseDetail = () => {
                 <div>
                   <Link
                     to={`/checkout/${id}`}
-                    className="badge badge-outline hover:bg-primary p-4"
+                    className="badge badge-outline hover:bg-primary hover:text-white p-4"
                   >
                     <span className="mr-2">Get premium access</span>
                     <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>

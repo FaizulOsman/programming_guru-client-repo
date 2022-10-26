@@ -18,9 +18,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const firstName = form.firstName.value;
-    const lastName = form.lastName.value;
-    const name = firstName + " " + lastName;
+    const name = form.fullName.value;
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
@@ -125,7 +123,7 @@ const Register = () => {
         </h4>
         <div className="mb-4">
           <label className="block  text-sm font-bold mb-2" htmlFor="username">
-            First Name
+            Full Name
           </label>
           <input
             className={
@@ -133,26 +131,10 @@ const Register = () => {
                 ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 : "bg-success shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
             }
-            id="firstName"
+            id="fullName"
             type="text"
-            name="firstName"
-            placeholder="First Name"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block  text-sm font-bold mb-2" htmlFor="username">
-            Last Name
-          </label>
-          <input
-            className={
-              darkBtn
-                ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                : "bg-success shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            }
-            id="lastName"
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
+            name="fullName"
+            placeholder="Full Name"
           />
         </div>
         <div className="mb-4">

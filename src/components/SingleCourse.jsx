@@ -35,7 +35,7 @@ const SingleCourse = ({ course }) => {
           <div className="card-actions justify-end">
             <Link
               to={`/course/${course.id}`}
-              className="badge badge-outline hover:bg-primary p-4"
+              className="badge badge-outline hover:bg-primary hover:text-white p-4"
             >
               <span className="mr-2">Course Details</span>
               <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>

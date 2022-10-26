@@ -15,6 +15,15 @@ const LoginForm = ({ email, password }) => {
   } = useContext(AuthContext);
   const { darkBtn } = useContext(DarkContext);
   const [resetPass, setResetPass] = useState("");
+  const [isChecked, setIsChecked] = useState(true);
+
+  const handleCheckboxChange = (e) => {
+    if (e.target.checked) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+  };
 
   const [error, setError] = useState("");
   const location = useLocation();
@@ -152,7 +161,12 @@ const LoginForm = ({ email, password }) => {
 
         <div className="md:flex md:items-center mt-4 mb-2">
           <label className="block font-bold">
-            <input className="mr-2 leading-tight" type="checkbox" />
+            <input
+              className="mr-2 leading-tight"
+              type="checkbox"
+              onChange={handleCheckboxChange}
+              checked={isChecked}
+            />
             <span className="text-sm">Accept all roles.</span>
           </label>
         </div>
@@ -170,8 +184,9 @@ const LoginForm = ({ email, password }) => {
         </p>
         <div className="flex items-center justify-between mt-5">
           <button
-            className="bg-primary hover:bg-orange-500 text-white font-bold py-2 px-4 rounded"
+            className="btn btn-primary font-bold py-2 px-4 rounded"
             type="submit"
+            disabled={!isChecked}
           >
             Sign In
           </button>
