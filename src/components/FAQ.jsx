@@ -5,7 +5,6 @@ import { DarkContext } from "../contexts/DarkProvider";
 const FAQ = () => {
   const { darkBtn } = useContext(DarkContext);
   const faqDatas = useLoaderData();
-  console.log(faqDatas);
 
   return (
     <div>
