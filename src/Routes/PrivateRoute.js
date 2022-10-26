@@ -7,7 +7,8 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <div>Loading...</div>;
+    // return <div>Loading...</div>;
+    return <svg className="animate-bounce w-6 h-6 ..."></svg>;
   }
 
   if (user && user.uid) {

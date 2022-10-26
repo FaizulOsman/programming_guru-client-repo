@@ -7,7 +7,8 @@ import { useReactToPrint } from "react-to-print";
 
 const CourseDetail = () => {
   const { id, name, img, description, lists } = useLoaderData();
-  // Print as PDF function
+
+  // Print as PDF Control
   const copmonentRef = useRef();
   const handlelPrint = useReactToPrint({
     content: () => copmonentRef.current,

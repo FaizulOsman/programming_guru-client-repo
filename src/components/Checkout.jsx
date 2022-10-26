@@ -8,13 +8,13 @@ const Checkout = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <div class="mt-20">
-        <h1 class="flex items-center justify-center font-bold text-blue-600 text-2xl  sm:text-4xl">
+      <div className="mt-20">
+        <h1 className="flex items-center justify-center font-bold text-blue-600 text-2xl  sm:text-4xl">
           CHECKOUT YOUR COURSE
         </h1>
       </div>
-      <div class="p-12 mx-auto">
-        <div class="md:flex gap-5">
+      <div className="p-12 mx-auto">
+        <div className="md:flex gap-5">
           <div
             className={
               darkBtn
@@ -41,16 +41,13 @@ const Checkout = () => {
                 : "bg-accent md:w-3/5 shadow-md rounded px-8 pt-6 pb-8 mb-4"
             }
           >
-            <h2 class="mb-4 font-bold md:text-xl text-heading ">
-              Shipping Address
-            </h2>
-            <form class="justify-center w-full mx-auto" method="post" action>
-              <div class="">
-                <div class="space-x-0 lg:flex lg:space-x-4">
-                  <div class="w-full lg:w-1/2">
+            <form className="justify-center w-full mx-auto" method="post">
+              <div className="">
+                <div className="space-x-0 lg:flex lg:space-x-4">
+                  <div className="w-full lg:w-1/2">
                     <label
-                      for="firstName"
-                      class="block mb-3 text-sm font-semibold text-gray-500"
+                      htmlFor="firstName"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
                     >
                       First Name
                     </label>
@@ -65,10 +62,10 @@ const Checkout = () => {
                       }
                     />
                   </div>
-                  <div class="w-full lg:w-1/2 ">
+                  <div className="w-full lg:w-1/2 ">
                     <label
-                      for="firstName"
-                      class="block mb-3 text-sm font-semibold text-gray-500"
+                      htmlFor="firstName"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
                     >
                       Last Name
                     </label>
@@ -84,11 +81,11 @@ const Checkout = () => {
                     />
                   </div>
                 </div>
-                <div class="mt-4">
-                  <div class="w-full">
+                <div className="mt-4">
+                  <div className="w-full">
                     <label
-                      for="Email"
-                      class="block mb-3 text-sm font-semibold text-gray-500"
+                      htmlFor="Email"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
                     >
                       Email
                     </label>
@@ -104,11 +101,11 @@ const Checkout = () => {
                     />
                   </div>
                 </div>
-                <div class="mt-4">
-                  <div class="w-full">
+                <div className="mt-4">
+                  <div className="w-full">
                     <label
-                      for="Address"
-                      class="block mb-3 text-sm font-semibold text-gray-500"
+                      htmlFor="Address"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
                     >
                       Address
                     </label>
@@ -125,11 +122,11 @@ const Checkout = () => {
                     ></textarea>
                   </div>
                 </div>
-                <div class="space-x-0 lg:flex lg:space-x-4">
-                  <div class="w-full lg:w-1/2">
+                <div className="space-x-0 lg:flex lg:space-x-4">
+                  <div className="w-full lg:w-1/2">
                     <label
-                      for="city"
-                      class="block mb-3 text-sm font-semibold text-gray-500"
+                      htmlFor="city"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
                     >
                       City
                     </label>
@@ -144,10 +141,10 @@ const Checkout = () => {
                       placeholder="City"
                     />
                   </div>
-                  <div class="w-full lg:w-1/2 ">
+                  <div className="w-full lg:w-1/2 ">
                     <label
-                      for="postcode"
-                      class="block mb-3 text-sm font-semibold text-gray-500"
+                      htmlFor="postcode"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
                     >
                       Postcode
                     </label>
@@ -163,21 +160,21 @@ const Checkout = () => {
                     />
                   </div>
                 </div>
-                <div class="flex items-center mt-4">
-                  <label class="flex items-center text-sm group text-heading">
+                <div className="flex items-center mt-4">
+                  <label className="flex items-center text-sm group text-heading">
                     <input
                       type="checkbox"
-                      class="w-5 h-5 border border-gray-300 rounded focus:outline-none focus:ring-1"
+                      className="w-5 h-5 border border-gray-300 rounded focus:outline-none focus:ring-1"
                     />
-                    <span class="ml-2">
+                    <span className="ml-2">
                       Save this information for next time
                     </span>
                   </label>
                 </div>
-                <div class="relative pt-3 xl:pt-6">
+                <div className="relative pt-3 xl:pt-6">
                   <label
-                    for="note"
-                    class="block mb-3 text-sm font-semibold text-gray-500"
+                    htmlFor="note"
+                    className="block mb-3 text-sm font-semibold text-gray-500"
                   >
                     {" "}
                     Notes (Optional)
@@ -193,8 +190,8 @@ const Checkout = () => {
                     placeholder="Notes"
                   ></textarea>
                 </div>
-                <div class="mt-4">
-                  <button class="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900">
+                <div className="mt-4">
+                  <button className="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900">
                     Process
                   </button>
                 </div>

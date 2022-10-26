@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
@@ -14,7 +14,7 @@ const Register = () => {
     githubSignIn,
   } = useContext(AuthContext);
   const { darkBtn } = useContext(DarkContext);
-
+  // Handle Submit Button
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -24,7 +24,7 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-
+    // Create User
     createUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -73,6 +73,41 @@ const Register = () => {
       .catch((e) => {
         console.log(e);
       });
+  };
+
+  // INPUT FIELD CONTROLLED BY REACT FOR MAKING ERROR INSTANTLY (only for email and password)
+  const [errorOnChange, setErrorOnChange] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleEmailChange = (e) => {
+    const emailValue = e.target.value;
+
+    if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailValue)) {
+      setErrorOnChange({
+        ...errorOnChange,
+        email: "Please provide a valid email.",
+      });
+    } else {
+      setErrorOnChange({ errorOnChange, email: "" });
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const passwordValue = e.target.value;
+
+    if (
+      !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(passwordValue)
+    ) {
+      setErrorOnChange({
+        ...errorOnChange,
+        password:
+          "Please provide a valid password (Includes [a-z], [A-Z], [0-9], [password >= 8]).",
+      });
+    } else {
+      setErrorOnChange({ errorOnChange, password: "" });
+    }
   };
 
   return (
@@ -141,6 +176,7 @@ const Register = () => {
             Email
           </label>
           <input
+            onChange={handleEmailChange}
             className={
               darkBtn
                 ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -152,11 +188,19 @@ const Register = () => {
             placeholder="Email"
           />
         </div>
+
+        {errorOnChange.email && (
+          <p className="text-red-500">
+            <small>{errorOnChange.email}</small>
+          </p>
+        )}
+
         <div className="mb-6">
           <label className="block text-sm font-bold mb-2" htmlFor="password">
             Password
           </label>
           <input
+            onChange={handlePasswordChange}
             className={
               darkBtn
                 ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -168,6 +212,13 @@ const Register = () => {
             placeholder="Password"
           />
         </div>
+
+        {errorOnChange.password && (
+          <p className="text-red-500">
+            <small>{errorOnChange.password}</small>
+          </p>
+        )}
+
         <div className="">
           <button
             className="w-full bg-primary hover:bg-orange-500 text-white font-bold py-2 px-4 rounded"
