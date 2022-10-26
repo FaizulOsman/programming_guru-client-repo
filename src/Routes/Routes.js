@@ -47,7 +47,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      { path: "/faq", element: <FAQ></FAQ> },
+      {
+        path: "/faq",
+        loader: () =>
+          fetch(
+            `https://b610-lerning-platform-server-side-faizul-osman.vercel.app/faq`
+          ),
+        element: <FAQ></FAQ>,
+      },
       { path: "/blog", element: <Blog></Blog> },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
