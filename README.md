@@ -36,6 +36,10 @@ In this website Tailwind, daisyUI, Toastify and FontAwesome are used properly.
 
 - FontAwesome: https://fontawesome.com/
 
+- Lottie-react: https://lottiefiles.com/
+
+- React-hot-toast: https://react-hot-toast.com/
+
 - @react-pdf/renderer: https://www.npmjs.com/package/@react-pdf/renderer
 
 **Thanks for visiting...**
