@@ -27,10 +27,11 @@ const Header = ({ handleDrawer }) => {
       <div className="navbar bg-transparent w-11/12 mx-auto">
         <div className="flex-1">
           <NavLink className="btn btn-ghost normal-case text-xl">
-            <span className="flex items-center text-primary text-2xl font-bold">
+            <p className="flex items-center text-primary text-2xl font-bold">
               <img src={Logo} alt="" />
-              Programming Guru
-            </span>
+              <span className="hidden sm:block">Programming Guru</span>
+              <span className="sm:hidden">PG</span>
+            </p>
           </NavLink>
         </div>
         <div className="flex-none gap-2">
@@ -56,7 +57,7 @@ const Header = ({ handleDrawer }) => {
                   FAQ
                 </NavLink>
               </li>
-              {user?.emailVerified || (
+              {!user?.uid ? (
                 <li tabIndex={0}>
                   <Link>
                     Sign In/Up
@@ -87,7 +88,7 @@ const Header = ({ handleDrawer }) => {
                     </li>
                   </ul>
                 </li>
-              )}
+              ) : undefined}
               <li>
                 <Link
                   title={
@@ -158,19 +159,103 @@ const Header = ({ handleDrawer }) => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-transparent rounded-box w-52"
+              className={
+                darkBtn
+                  ? "mt-3 p-2 shadow menu menu-compact dropdown-content bg-gray-200 rounded-box w-52"
+                  : "mt-3 p-2 shadow menu menu-compact dropdown-content bg-accent rounded-box w-52"
+              }
             >
               <li>
-                <NavLink to="/home">Home</NavLink>
+                <NavLink className="font-semibold" to="/home">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink className="font-semibold" to="/courses">
+                  Courses
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/login">Login</NavLink>
+                <NavLink className="font-semibold" to="/blog">
+                  Blog
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/register">Register</NavLink>
+                <NavLink className="font-semibold" to="/faq">
+                  FAQ
+                </NavLink>
+              </li>
+              {!user?.uid ? (
+                <>
+                  <li>
+                    <NavLink className="font-semibold" to="/login">
+                      Login
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="font-semibold" to="/register">
+                      Register
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <NavLink
+                    onClick={handleSignOut}
+                    className="font-semibold"
+                    to="/login"
+                  >
+                    Sign Out
+                  </NavLink>
+                </li>
+              )}
+              <li>
+                <Link
+                  title={
+                    user?.displayName
+                      ? user?.displayName
+                      : "User name not found"
+                  }
+                  onClick={handleDrawer}
+                >
+                  {user?.photoURL ? (
+                    <img
+                      className="h-7 rounded-full border border-primary"
+                      src={user.photoURL}
+                      alt="user"
+                    />
+                  ) : (
+                    <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                  )}
+                </Link>
+                {user?.uid && (
+                  <ul className={darkBtn ? "p-2" : "p-2 bg-accent"}>
+                    <li>
+                      <NavLink
+                        onClick={handleSignOut}
+                        className="font-semibold"
+                        to="/login"
+                      >
+                        Sign Out
+                      </NavLink>
+                    </li>
+                  </ul>
+                )}
+              </li>
+
+              <li
+                onClick={handleDarkButton}
+                className={darkBtn ? "rotate-180" : undefined}
+                title={
+                  darkBtn ? "You are in Light Mode" : "You are in Dark Mode"
+                }
+              >
+                <Link className="flex items-center">
+                  <FontAwesomeIcon
+                    className="text-2xl text-primary p-0"
+                    icon={faCircleHalfStroke}
+                  />
+                </Link>
               </li>
             </ul>
           </div>

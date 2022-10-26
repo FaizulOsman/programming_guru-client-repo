@@ -22,13 +22,13 @@ const CourseDetail = () => {
             </h2>
             <p className="py-5">{description}</p>
             <h4 className="text-2xl font-semibold">Skills you'll gain</h4>
-
+            {/* ========= Maping For List of skills you'll gain ======== */}
             <div className="mt-5 mb-10">
               {lists.map((list) => (
-                <li>{list}</li>
+                <li key={list}>{list}</li>
               ))}
             </div>
-
+            {/* ========= Maping For Dynamic Button (Get premium access) ======== */}
             <div>
               <Link
                 to={`/checkout/${id}`}

@@ -25,7 +25,7 @@ const RightSidebar = ({ drawer, handleDrawer }) => {
   return (
     <div>
       <div
-        style={drawer ? { marginTop: "-1000px" } : { margin: "0" }}
+        style={drawer ? { marginTop: "-1100px" } : { margin: "0" }}
         className="z-50 bg-primary border-l-2 border-primary border-b-2 p-2 w-72 duration-1000 min-h-screen absolute top-0 right-0"
       >
         <div className="flex justify-between bg-white p-2 rounded-md">

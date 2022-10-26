@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-24">
-        <div className="flex flex-col items-center justify-between lg:flex-row">
+        <div className="md:flex md:flex-col items-center justify-between lg:flex-row">
           <div className="mb-10 lg:max-w-lg  lg:pr-5 lg:mb-0">
             <div className="max-w-xl mb-6 lg:mt-8">
               <div>
@@ -87,8 +87,8 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="relative my-10 lg:w-1/2 ">
-            <div className="w-full lg:w-4/5 lg:ml-auto h-56 sm:h-96">
+          <div className="my-10 lg:w-1/2">
+            <div className="w-full lg:w-4/5 lg:ml-auto">
               {darkBtn ? (
                 <Lottie animationData={lottieCodingLight} loop={true} />
               ) : (
