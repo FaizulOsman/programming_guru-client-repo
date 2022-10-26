@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 const Header = ({ handleDrawer }) => {
   const { user, logOut } = useContext(AuthContext);
   const { darkBtn, handleDarkButton } = useContext(DarkContext);
-
+  // Handle User Sign Out
   const handleSignOut = () => {
     logOut()
       .then(() => {

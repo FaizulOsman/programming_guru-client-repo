@@ -6,7 +6,7 @@ import SingleCourse from "./SingleCourse";
 const Courses = () => {
   const courses = useLoaderData();
   const [drawer, setDrawer] = useState(true);
-
+  // Handle Left Sidebar (Drawer)
   const handleDrawer = () => {
     setDrawer(!drawer);
   };

@@ -10,7 +10,7 @@ import LoginForm from "./LoginForm";
 const RightSidebar = ({ drawer, handleDrawer }) => {
   const { user, logOut } = useContext(AuthContext);
   const { darkBtn } = useContext(DarkContext);
-
+  // User Log Out
   const handleSignOut = () => {
     logOut()
       .then(() => {

@@ -22,17 +22,13 @@ Github Link: https://github.com/programming-hero-web-course1/b610-lerning-platfo
 
 ## What used in this app
 
-In this website Tailwind, daisyUI, Toastify and FontAwesome are used properly.
+In this website React-router-dom, Tailwind, daisyUI, Lottie-react, React-hot-toast, react-pdf/renderer and FontAwesome are used.
 
 - React Router Dom: https://reactrouter.com/en/main
 
 - Tailwind: https://tailwindcss.com/
 
 - daisyUI: https://daisyui.com/
-
-- Toastify: https://www.npmjs.com/package/react-toastify
-
-- Recharts: https://recharts.org/en-US/
 
 - FontAwesome: https://fontawesome.com/
 

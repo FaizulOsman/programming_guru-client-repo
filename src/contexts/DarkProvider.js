@@ -5,7 +5,7 @@ export const DarkContext = createContext();
 const DarkProvider = ({ children }) => {
   const [darkBtn, setDarkBtn] = useState(false);
   const [dark, setDark] = useState(false);
-
+  // Handle Dark Button
   const handleDarkButton = () => {
     setDarkBtn(!darkBtn);
     console.log(darkBtn);

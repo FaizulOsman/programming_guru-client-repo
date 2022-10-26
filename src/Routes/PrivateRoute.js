@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
     // return <div>Loading...</div>;
     return <svg className="animate-bounce w-6 h-6 ..."></svg>;
   }
-
+  // Return Children (Private Route Page)
   if (user && user.uid) {
     return children;
   }
