@@ -1,6 +1,6 @@
-# QuizQueen Starter Repository
+# Programming Guru Starter Repository
 
-# Project Nmae: Programming Guru
+# Project Name: Programming Guru
 
 A best platform for making yourself perfect on your chosen topic in programming.
 
