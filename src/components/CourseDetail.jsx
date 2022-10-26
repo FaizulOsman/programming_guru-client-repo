@@ -22,7 +22,7 @@ const CourseDetail = () => {
         <div className="w-11/12 mx-auto my-20">
           <div className="flex-none md:flex">
             <div className="md:w-5/12 p-10 my-auto">
-              <img src={img} className="w-3/4" alt="img" />
+              <img src={img} className="w-3/4 mx-auto" alt="img" />
             </div>
             <div className="md:w-7/12 flex flex-col justify-center items-center md:border-l-2 md:pl-10">
               <div className="">

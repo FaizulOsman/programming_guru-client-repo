@@ -8,7 +8,7 @@ const LeftSidebar = ({ drawer, handleDrawer, courses }) => {
   return (
     <div>
       <div
-        style={drawer ? { marginLeft: "-300px" } : { margin: "0" }}
+        style={drawer ? { marginLeft: "-320px" } : { margin: "0" }}
         className={
           darkBtn
             ? "bg-white z-50 border-primary border-r-2 border-b-2 p-2 w-[40%] md:w-72 duration-500 min-h-screen absolute top-0 left-0"
