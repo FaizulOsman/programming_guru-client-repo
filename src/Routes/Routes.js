@@ -35,18 +35,22 @@ export const router = createBrowserRouter([
           ),
         element: <CourseDetail></CourseDetail>,
       },
-      { path: "/faq", element: <FAQ></FAQ> },
-      { path: "/blog", element: <Blog></Blog> },
-      { path: "/login", element: <Login></Login> },
-      { path: "/register", element: <Register></Register> },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://b610-lerning-platform-server-side-faizul-osman.vercel.app/course/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <Checkout />
           </PrivateRoute>
         ),
       },
+      { path: "/faq", element: <FAQ></FAQ> },
+      { path: "/blog", element: <Blog></Blog> },
+      { path: "/login", element: <Login></Login> },
+      { path: "/register", element: <Register></Register> },
     ],
   },
 ]);

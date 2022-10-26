@@ -20,7 +20,7 @@ const Courses = () => {
           </button>
           {courses.map((course) => (
             <Link to={`/course/${course.id}`} key={course.id}>
-              <h4 className="text-lg font-semibold mt-3 text-primary underline">
+              <h4 className="text-lg font-semibold mt-3 text-primary hover:text-secondary">
                 {course.id}. {course.name}
               </h4>
             </Link>

@@ -4,7 +4,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetail = () => {
-  const { name, img, description } = useLoaderData();
+  const { id, name, img, description, lists } = useLoaderData();
 
   return (
     <div className="w-11/12 mx-auto py-20">
@@ -14,19 +14,30 @@ const CourseDetail = () => {
         </div>
         <div className="md:w-7/12 flex flex-col justify-center items-center">
           <div className="">
-            <h2 className="text-3xl font-bold">{name}</h2>
+            <h2 className="text-5xl font-bold">
+              {name}
+              <Link className="badge badge-outline hover:bg-primary p-4 ml-5">
+                <FontAwesomeIcon icon={faDownload}></FontAwesomeIcon>
+              </Link>
+            </h2>
             <p className="py-5">{description}</p>
-            <Link
-              to="/checkout"
-              className="badge badge-outline hover:bg-primary p-4"
-            >
-              <span className="mr-2">Get premium access</span>
-              <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-            </Link>
-            <Link className="badge badge-outline hover:bg-primary p-4 ml-5">
-              <span className="mr-2">Download PDF</span>
-              <FontAwesomeIcon icon={faDownload}></FontAwesomeIcon>
-            </Link>
+            <h4 className="text-2xl font-semibold">Skills you'll gain</h4>
+
+            <div className="mt-5 mb-10">
+              {lists.map((list) => (
+                <li>{list}</li>
+              ))}
+            </div>
+
+            <div>
+              <Link
+                to={`/checkout/${id}`}
+                className="badge badge-outline hover:bg-primary p-4"
+              >
+                <span className="mr-2">Get premium access</span>
+                <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

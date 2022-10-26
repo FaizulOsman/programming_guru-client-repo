@@ -1,4 +1,4 @@
-## Task Description:
+## Task Description: 
 
 You have to create a website to provide a quality learning platform in the domains of Computer Science/ Information Technology/Programming Languages/ Web technology/ anything else (anything related to education). For example, JavaScript tutorial. Please note that you will select one of the options mentioned above/ any one topic regarding education. You can't make a website with a JavaScript tutorial, as we have given an example on it.
 
@@ -12,7 +12,7 @@ You have to create a website to provide a quality learning platform in the domai
 
 1. In your Email and Password registration form, there should be an input box for "Full name," where the user will type their full name. Other fields will be Photo URL, Email, and Password.
 
-1. Clicking "Courses" in the navbar (You can change this name to any meaningful name according to your design, but the purpose of this button should be the same according to our description) will redirect to a page that shows the courses. (Creating a fake dataset is necessary here). You have to create at least 6 courses (fake data). Design & course information is all up to you. (Load data from the server side - must). You can create one, two, or more courses in a row.
+1. Clicking "Courses" in the navbar (You can change this name to any meaningful name according to your design, but the purpose of this button should be the same according to our description) will redirect to a page that shows the courses. (Creating a fake dataset is necessary here). You have to create at least 6 courses (fake data). Design & course information is all up to you. (Load data from the server side - must). You can create one, two, or more courses in a row. 
 
 1. The Courses page will be divided into two parts: a sidebar (either on the left side or on the right side according to your design) & content detail section. In the sidebar, there will be at least 6 options (course options or course categories, or anything else). Every option is clickable. (You will need to create necessary fake data)
 
@@ -22,14 +22,14 @@ You have to create a website to provide a quality learning platform in the domai
 
 1. There will be a button at the bottom of the content detail called "Get premium access." Clicking the button will take the user to the Checkout route. This route will be a private/protected route. Please ensure that the private route redirects to the login page if the user is not logged in. After login, the user will be redirected to the checkout page.
 
-1. Your checkout page will be a dynamic route with route parameters having the id of the content that the user had clicked. On the checkout page, you will display the name based on the id.
+1. Your checkout page will be a dynamic route with route parameters having the id of the content that the user had clicked. On the checkout page, you will display the name based on the id. 
+
 
 1. Use the Environment variable to hide the firebase key.
 
 1. If you reload the protected/private route (after login), this page will not redirect the user to the login page. Instead, it will keep the logged-in user on the protected route.
 
-### Bonus:
-
+### Bonus: 
 1. Minimum 12 meaningful git commits on the client-side repository and minimum of 5 meaningful commits on the server-side repository.
 
 1. Make your website mobile & desktop responsive (tablet responsive is optional).
@@ -37,41 +37,42 @@ You have to create a website to provide a quality learning platform in the domai
 1. Display errors when the user's email address or password doesn't match.
 
 1. Clicking "Blog" will redirect to a public route. That route will have 4 questions & answers.
+    
+    4.1 what is `cors`?
+    
+    4.2 Why are you using `firebase`? What other options do you have to implement authentication?
 
-   4.1 what is `cors`?
-
-   4.2 Why are you using `firebase`? What other options do you have to implement authentication?
-
-   4.3 How does the private route work?
-
-   4.4 What is Node? How does Node work?
+    4.3 How does the private route work?
+    
+    4.4 What is Node? How does Node work?
 
 1. (client-side repo) Meaningful readme.md file containing your website name and link to your live site. And at least five bullet points mentioning your website's different features and functionality. And a list of technologies (frameworks, libraries) used in your project. (added a meaningful readme.md file for the server-side repo is optional)
 
 1. Create a 404 page.
 
-1. Make sure your site looks reasonable. The design and color selection is meaningful.
+1. Make sure your site looks reasonable. The design and color selection is meaningful. 
 
-1. Clean and organized Code (folder structure). Organize components with meaningful names, and add comments when needed.
+2. Clean and organized Code (folder structure). Organize components with meaningful names, and add comments when needed.
+
 
 ### Optional (But Highly Recommended):
 
 1. Add a link for Password reset (use toast/ alert), (Don't worry if the email goes to the spam folder.)
 
-2. Add "active route" to indicate the route which you are visiting.
+3. Add "active route" to indicate the route which you are visiting.
 
-3. Use react-hook-form package to make forms on your website
+1. Use react-hook-form package to make forms on your website
 
-4. Explore & use these react packages in your website : react-icons, react-image-magnify, react-awesome-slider, react-loader etc.
+1. Explore & use these react packages in your website : react-icons, react-image-magnify, react-awesome-slider, react-loader etc.
 
-5. Feel free to add some relevant FAQ in your FAQ route
+1. Feel free to add some relevant FAQ in your FAQ route
 
-6. If you have sometime, try to implement dark/light theme toggle.
+1. If you have sometime, try to implement dark/light theme toggle. 
 
-7. Optional but highly recommended: A detailed, realistic, complex & stylish footer.
-8. When a user clicks on their profile image, it will redirect to the user details page. This page will show the user's detailed information (name, email & profile picture). The logged-in user can update their profile(image, displayName) by clicking on a button. (Alternatively, The profile edit form could be in a modal)
-9. Add something extra of your own. This will help you in the future to differentiate your project from others.
-10. If you want to take a challenge. Consider using `react-leaflet` anywhere in your application
+1. Optional but highly recommended: A detailed, realistic, complex & stylish footer.
+2. When a user clicks on their profile image, it will redirect to the user details page. This page will show the user's detailed information (name, email & profile picture). The logged-in user can update their profile(image, displayName) by clicking on a button. (Alternatively, The profile edit form could be in a modal)
+3. Add something extra of your own. This will help you in the future to differentiate your project from others.
+4. If you want to take a challenge. Consider using `react-leaflet` anywhere in your application
 
 ### Additional information:
 
@@ -93,10 +94,8 @@ You have to create a website to provide a quality learning platform in the domai
 2. Do not waste much time finding the right image. You can always start with a simple idea. Make the website and then add different images.
 3. Don't look at the overall task list. Just take one task at a time and do it. Once it's done, pick the next task. If you get stuck on a particular task, move on to the next task.
 4. Stay calm, think before coding, and work sequentially. You will make it.
-5. Be strategic about electricity issue.
+5. Be strategic about electricity issue. 
 
 ---
-
 ### No Pain, No gain:
-
-`Have Patience! Work Hard! YOu will surprise yourself, and eventually, you will be proud of yourself.`
+`Have Patience! Work Hard! YOu will surprise yourself, and eventually, you will be proud of yourself.` 
