@@ -6,7 +6,7 @@ A best platform for making yourself perfect on your chosen topic in programming.
 
 ## Live Website Link:
 
-Hosted in Firevese -> https://programming-guru-3a472.web.app
+Hosted in Firebase -> https://programming-guru-3a472.web.app
 
 ## Client Side Code Link:
 

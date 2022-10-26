@@ -12,7 +12,7 @@ const SingleCourse = ({ course }) => {
     <div>
       <div className={darkBtn ? "card shadow-xl" : "card bg-accent shadow-xl"}>
         <figure>
-          <img className="h-64 p-2" src={img} alt="Shoes" />
+          <img className="h-64 p-2" src={img} alt="img" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">
