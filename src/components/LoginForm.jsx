@@ -76,10 +76,10 @@ const LoginForm = ({ email, password }) => {
   const handleResetPassword = () => {
     resetPassword(resetPass)
       .then(() => {
-        toast.error("Please check your email to verify password");
+        toast.success("Please check your email to verify password!");
       })
       .catch((e) => {
-        toast.success("Something wrong happening");
+        toast.error("Something wrong happening!");
         console.log(e);
       });
   };
