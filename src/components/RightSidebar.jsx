@@ -12,7 +12,8 @@ import { AuthContext } from "../contexts/UserContext";
 import LoginForm from "./LoginForm";
 
 const RightSidebar = ({ drawer, handleDrawer }) => {
-  const { user, logOut, updateUserProfile } = useContext(AuthContext);
+  const { user, logOut, updateUserProfile, setLoading } =
+    useContext(AuthContext);
   const { darkBtn } = useContext(DarkContext);
   // User Log Out
   const handleSignOut = () => {
@@ -23,6 +24,9 @@ const RightSidebar = ({ drawer, handleDrawer }) => {
       .catch((e) => {
         console.log(e);
         toast.error("Something wrong!!!");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 

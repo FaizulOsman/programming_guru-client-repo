@@ -1,12 +1,24 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
 
 const SingleCourse = ({ course }) => {
   const { img, name, description, type } = course;
   const { darkBtn } = useContext(DarkContext);
+  const [wishList, setWishList] = useState(false);
+
+  const handleWishList = () => {
+    if (!wishList) {
+      toast.success("Added to WishList");
+    } else {
+      toast.error("removed from WishList");
+    }
+
+    setWishList(!wishList);
+  };
 
   return (
     <div>
@@ -15,18 +27,25 @@ const SingleCourse = ({ course }) => {
           <img className="h-64 p-2" src={img} alt="img" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">
-            {name}
-            <div
-              className={
-                type === "Free"
-                  ? "badge badge-primary"
-                  : "badge badge-secondary"
-              }
-            >
-              {type}
-            </div>
-          </h2>
+          <div className="flex justify-between items-center">
+            <h2 className="card-title">
+              {name}
+              <div
+                className={
+                  type === "Free"
+                    ? "badge badge-primary"
+                    : "badge badge-secondary"
+                }
+              >
+                {type}
+              </div>
+            </h2>
+            <FontAwesomeIcon
+              onClick={handleWishList}
+              className={wishList ? "text-red-600" : undefined}
+              icon={faHeart}
+            />
+          </div>
           <p>
             {description.length > 80
               ? description.slice(0, 80) + " ..."
