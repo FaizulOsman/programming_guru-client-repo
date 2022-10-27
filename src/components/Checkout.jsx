@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
 
 const Checkout = () => {
-  const { name, img, lists } = useLoaderData();
+  const { name, img, lists, price } = useLoaderData();
   const { darkBtn } = useContext(DarkContext);
 
   return (
@@ -41,6 +41,7 @@ const Checkout = () => {
                 : "bg-accent md:w-3/5 shadow-md rounded px-8 pt-6 pb-8 mb-4"
             }
           >
+            <h2 className="text-3xl font-bold mb-4">Payment Details</h2>
             <form className="justify-center w-full mx-auto" method="post">
               <div className="">
                 <div className="space-x-0 lg:flex lg:space-x-4">
@@ -98,6 +99,64 @@ const Checkout = () => {
                       name="Last Name"
                       type="text"
                       placeholder="Email"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <div className="w-full">
+                    <label
+                      htmlFor="Card"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
+                    >
+                      Card number
+                    </label>
+                    <input
+                      className={
+                        darkBtn
+                          ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                          : "bg-success shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                      }
+                      name="cardNumber"
+                      type="text"
+                      placeholder="Card number"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 space-x-0 lg:flex lg:space-x-4">
+                  <div className="w-full lg:w-1/2">
+                    <label
+                      htmlFor="expirationDate"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
+                    >
+                      Expiration date (MM/YY)
+                    </label>
+                    <input
+                      name="expirationDate"
+                      type="date"
+                      placeholder="Expiration date"
+                      className={
+                        darkBtn
+                          ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                          : "bg-success shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                      }
+                    />
+                  </div>
+                  <div className="w-full lg:w-1/2 ">
+                    <label
+                      htmlFor="CVC"
+                      className="block mb-3 text-sm font-semibold text-gray-500"
+                    >
+                      CVC
+                    </label>
+                    <input
+                      className={
+                        darkBtn
+                          ? "bg-base-100 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                          : "bg-success shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                      }
+                      name="CVC"
+                      type="text"
+                      placeholder="CVC"
                     />
                   </div>
                 </div>
@@ -192,7 +251,7 @@ const Checkout = () => {
                 </div>
                 <div className="mt-4">
                   <button className="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900">
-                    Process
+                    Pay ${price}
                   </button>
                 </div>
               </div>

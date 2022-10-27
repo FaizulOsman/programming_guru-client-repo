@@ -9,16 +9,16 @@ const CourseDetail = () => {
   const { id, name, img, description, lists } = useLoaderData();
 
   // Print as PDF Control
-  const copmonentRef = useRef();
+  const componentRef = useRef();
   const handlelPrint = useReactToPrint({
-    content: () => copmonentRef.current,
+    content: () => componentRef.current,
     documentTitle: "emp-data",
     onAfterPrint: () => toast.success("Successfully printed as PDF"),
   });
 
   return (
     <>
-      <div ref={copmonentRef}>
+      <div ref={componentRef}>
         <div className="w-11/12 mx-auto my-20">
           <div className="flex-none md:flex">
             <div className="md:w-5/12 p-10 my-auto">
