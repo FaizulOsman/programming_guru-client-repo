@@ -26,13 +26,13 @@ const Header = ({ handleDrawer }) => {
     <div className="border-b-2 border-primary">
       <div className="navbar bg-transparent w-11/12 mx-auto">
         <div className="flex-1">
-          <NavLink className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="normal-case text-xl">
             <p className="flex items-center text-primary text-2xl font-bold">
               <img src={Logo} alt="" />
               <span className="hidden sm:block">Programming Guru</span>
               <span className="sm:hidden">PG</span>
             </p>
-          </NavLink>
+          </Link>
         </div>
         <div className="flex-none gap-2">
           <div className="hidden lg:block flex-none">

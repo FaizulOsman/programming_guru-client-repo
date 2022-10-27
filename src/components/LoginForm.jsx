@@ -16,6 +16,11 @@ const LoginForm = ({ email, password }) => {
   const { darkBtn } = useContext(DarkContext);
   const [resetPass, setResetPass] = useState("");
   const [isChecked, setIsChecked] = useState(true);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleCheckboxChange = (e) => {
     if (e.target.checked) {
@@ -25,11 +30,6 @@ const LoginForm = ({ email, password }) => {
     }
   };
 
-  const [error, setError] = useState("");
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const from = location.state?.from?.pathname || "/";
   // Handle Submit Button
   const handleSubmit = (e) => {
     e.preventDefault();

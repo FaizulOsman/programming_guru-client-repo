@@ -10,7 +10,8 @@ const Checkout = () => {
     <div className="w-11/12 mx-auto">
       <div className="mt-20">
         <h1 className="flex items-center justify-center font-bold text-blue-600 text-2xl  sm:text-4xl">
-          CHECKOUT YOUR COURSE
+          Checkout-
+          <span className="text-secondary"> {name} </span> -Course
         </h1>
       </div>
       <div className="p-12 mx-auto">
