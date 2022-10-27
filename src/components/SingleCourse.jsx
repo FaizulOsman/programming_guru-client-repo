@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { DarkContext } from "../contexts/DarkProvider";
 
 const SingleCourse = ({ course }) => {
-  const { img, name, description, type } = course;
+  const { img, name, description, type, price } = course;
   const { darkBtn } = useContext(DarkContext);
   const [wishList, setWishList] = useState(false);
 
@@ -51,7 +51,8 @@ const SingleCourse = ({ course }) => {
               ? description.slice(0, 80) + " ..."
               : description}
           </p>
-          <div className="card-actions justify-end">
+          <div className="card-actions justify-between items-center">
+            <div className="badge badge-info">Price ${price}</div>
             <Link
               to={`/course/${course.id}`}
               className="badge badge-outline hover:bg-primary hover:text-white p-4"

@@ -36,6 +36,6 @@ In this website React-router-dom, Tailwind, daisyUI, Lottie-react, React-hot-toa
 
 - React-hot-toast: https://react-hot-toast.com/
 
-- @react-pdf/renderer: https://www.npmjs.com/package/@react-pdf/renderer
+- React-to-pdf: https://www.npmjs.com/package/react-to-pdf
 
 **Thanks for visiting...**
